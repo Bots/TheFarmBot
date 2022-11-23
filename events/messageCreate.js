@@ -16,12 +16,9 @@ module.exports = {
 
 		if (message.content.startsWith('!')) {
 			const args = message.content.slice(1).trim().split(/ +/g);
-
 			const command = args.shift().toLowerCase();
-
 			try {
-				const cmd = await Command.findOne({ name: command });
-
+				const cmd = await Command.findOne({ where: { name: command } });
 				if (cmd === null) {
 					message.channel.send('Command not found.');
 					return;
