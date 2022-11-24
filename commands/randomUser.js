@@ -8,8 +8,8 @@ module.exports = {
 		console.log('interaction: ', interaction);
 		const members = await interaction.member.guild.members.cache;
 		console.log(members);
-		// const randomMember = members.user;
-		// console.log(randomMember);
+		const randomMember = members.random();
+		console.log(randomMember);
 		// await interaction.reply(`The random user is ${randomMember}!`);
 	},
 };
