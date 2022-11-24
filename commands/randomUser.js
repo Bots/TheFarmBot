@@ -2,12 +2,11 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('random-user')
+		.setName('randomuser')
 		.setDescription('Returns a random user from the server!'),
 	async execute(interaction) {
 		const members = interaction.guild.members.cache;
-		console.log(members);
-		const randomMember = members.random();
-		await interaction.reply(`The random user is ${randomMember.user.username}!`);
+		const randomMember = members.random().user;
+		await interaction.reply(`The random user is ${randomMember.username}!`);
 	},
 };
