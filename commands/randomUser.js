@@ -6,10 +6,10 @@ module.exports = {
 		.setDescription('Returns a random user from the server!'),
 	async execute(interaction) {
 		console.log(interaction);
-		const members = await interaction.guild.members.fetch();
-		console.log(members);
-		const randomMember = members.random();
+		const members = await interaction.guild.members.random();
+		console.log(members.user);
+		const randomMember = members.user;
 		console.log(randomMember);
-		await interaction.reply(`The random user is ${randomMember.username}!`);
+		await interaction.reply(`The random user is ${randomMember}!`);
 	},
 };
